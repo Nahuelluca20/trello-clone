@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+  @apply flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm transition duration-100 ease-out active:scale-95 bg-waikawa-gray-400 hover:bg-waikawa-gray-300 text-waikawa-gray-950 font-semibold;
+}
