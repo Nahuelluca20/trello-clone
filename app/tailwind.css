@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
-  @apply flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm transition duration-100 ease-out active:scale-95 bg-waikawa-gray-400 hover:bg-waikawa-gray-300 text-waikawa-gray-950 font-semibold;
+.react-aria-Button {
+  @apply flex items-center justify-center border-2 border-transparent gap-2 rounded-full px-5 py-2.5 text-sm transition duration-100 ease-out active:scale-95 bg-waikawa-gray-400 hover:bg-waikawa-gray-300 text-waikawa-gray-950 font-semibold;
+
+  &[data-disabled] {
+    @apply bg-waikawa-gray-800 text-waikawa-gray-100 cursor-not-allowed;
+  }
+
+  &[data-outline] {
+    @apply bg-transparent border-2 border-waikawa-gray-300 hover:bg-waikawa-gray-950 text-waikawa-gray-300;
+  }
 }
