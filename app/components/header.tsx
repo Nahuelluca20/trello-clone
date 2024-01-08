@@ -1,17 +1,38 @@
 import { Button } from "react-aria-components";
+import { LogOut, LogIn } from "lucide-react";
+import { Link } from "@remix-run/react";
 
 export default function Header() {
-  return (
-    <nav className="fixed z-10 bg-dark-100 w-full border-b-2 py-2 px-20">
-      <h2>Trellix</h2>
+  const isLogged = false;
 
-      <ul>
-        <li>boards</li>
-        <li>info</li>
-        <li>
-          <Button>Login</Button>
-        </li>
-      </ul>
+  return (
+    <nav className="w-full border-white  border-b-2 flex py-4 ">
+      <div className="max-w-[1400px] mx-auto w-full px-5 flex items-center justify-between">
+        <h2>Trellix</h2>
+
+        <ul className="flex gap-4 items-center">
+          <li>
+            <Link to="/boards">Boards</Link>
+          </li>
+          <li>
+            <Link to="/info">Info</Link>
+          </li>
+
+          <li>
+            {isLogged ? (
+              <Button data-outline style={{ padding: "5px 10px" }}>
+                <LogOut width={15} />
+                Logout
+              </Button>
+            ) : (
+              <Button data-outline style={{ padding: "5px 10px" }}>
+                <LogIn width={15} />
+                Login
+              </Button>
+            )}
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }
