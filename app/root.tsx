@@ -31,7 +31,7 @@ export default function App() {
       </head>
       <body className="bg-dark-100 text-white">
         <Header />
-        <div className="max-w-[1400px] mx-auto mt-20 px-5">
+        <div className="max-w-[1400px] mx-auto mt-10 px-5">
           <Outlet />
         </div>
         <ScrollRestoration />

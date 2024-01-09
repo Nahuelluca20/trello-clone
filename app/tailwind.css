@@ -13,3 +13,31 @@
     @apply bg-transparent border-2 border-waikawa-gray-300 hover:bg-waikawa-gray-950 text-waikawa-gray-300;
   }
 }
+
+.react-aria-Input {
+  @apply w-full px-4 py-2 bg-transparent border-2 border-waikawa-gray-300 rounded-full text-waikawa-gray-200 font-semibold;
+}
+
+.react-aria-Popover {
+  &[data-focus-visible] {
+    @apply outline-none;
+  }
+}
+
+.react-aria-ListBox {
+  border: none;
+}
+
+.react-aria-ListBoxItem {
+  &[data-focused],
+  &[data-focus-visible],
+  &[data-pressed] {
+    @apply outline-none bg-waikawa-gray-500 text-waikawa-gray-950;
+  }
+
+  @apply cursor-pointer py-1 mx-2 rounded-md px-2;
+
+  &[data-hovered] {
+    @apply bg-waikawa-gray-500 text-waikawa-gray-950;
+  }
+}
