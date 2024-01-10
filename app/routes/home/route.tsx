@@ -14,7 +14,7 @@ import {
   FieldError,
 } from "react-aria-components";
 import { boardSchema } from "./form-schema";
-import { requireAuthCookie } from "~/auth/auth";
+import { requireAuthCookie } from "~/auth/auth.server";
 import { getHomeData } from "./queries";
 
 export const meta = () => {
