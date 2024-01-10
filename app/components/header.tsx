@@ -2,9 +2,7 @@ import { Button } from "react-aria-components";
 import { LogOut, LogIn } from "lucide-react";
 import { Link } from "@remix-run/react";
 
-export default function Header() {
-  const isLogged = true;
-
+export default function Header({ isLogged }: { isLogged: null | string }) {
   return (
     <nav className="w-full border-white  border-b-2 flex py-4 ">
       <div className="max-w-[1400px] mx-auto w-full px-5 flex items-center justify-between">
@@ -25,15 +23,21 @@ export default function Header() {
 
           <li>
             {isLogged ? (
-              <Button data-outline style={{ padding: "5px 10px" }}>
-                <LogOut width={15} />
-                Logout
-              </Button>
+              <form method="post" action="/logout">
+                <button className="block text-center">
+                  <Button data-outline style={{ padding: "5px 10px" }}>
+                    <LogOut width={15} />
+                    Logout
+                  </Button>
+                </button>
+              </form>
             ) : (
-              <Button data-outline style={{ padding: "5px 10px" }}>
-                <LogIn width={15} />
-                Login
-              </Button>
+              <Link to="/login">
+                <Button data-outline style={{ padding: "5px 10px" }}>
+                  <LogIn width={15} />
+                  Login
+                </Button>
+              </Link>
             )}
           </li>
         </ul>

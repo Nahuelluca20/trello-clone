@@ -1,4 +1,9 @@
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import type {
+  DataFunctionArgs,
+  LinksFunction,
+  LoaderFunctionArgs,
+  MetaFunction,
+} from "@remix-run/node";
 import {
   Links,
   LiveReload,
@@ -6,10 +11,14 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  ShouldRevalidateFunctionArgs,
+  redirect,
+  useLoaderData,
 } from "@remix-run/react";
 
 import styles from "./tailwind.css";
 import Header from "./components/header";
+import { getAuthFromRequest } from "./auth/auth";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
@@ -21,7 +30,21 @@ export const meta: MetaFunction = () => [
   },
 ];
 
+export async function loader({ request }: DataFunctionArgs) {
+  let auth = await getAuthFromRequest(request);
+  if (auth && new URL(request.url).pathname === "/") {
+    throw redirect("/home");
+  }
+  return auth;
+}
+
+export function shouldRevalidate({ formAction }: ShouldRevalidateFunctionArgs) {
+  return formAction && ["/login", "/signup", "logout"].includes(formAction);
+}
+
 export default function App() {
+  let userId = useLoaderData<typeof loader>();
+
   return (
     <html lang="en">
       <head>
@@ -30,7 +53,7 @@ export default function App() {
         <Links />
       </head>
       <body className="bg-dark-100 text-white">
-        <Header />
+        <Header isLogged={userId} />
         <div className="max-w-[1400px] mx-auto mt-10 px-5">
           <Outlet />
         </div>
