@@ -18,7 +18,7 @@ import {
 
 import styles from "./tailwind.css";
 import Header from "./components/header";
-import { getAuthFromRequest } from "./auth/auth";
+import { getAuthFromRequest } from "./auth/auth.server";
 
 export const links: LinksFunction = () => [{ rel: "stylesheet", href: styles }];
 
