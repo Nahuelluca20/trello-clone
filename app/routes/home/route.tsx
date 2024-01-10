@@ -1,4 +1,4 @@
-import { ActionFunctionArgs, json } from "@remix-run/node";
+import { ActionFunctionArgs, LoaderFunctionArgs, json } from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
 import {
   Button,
@@ -11,12 +11,21 @@ import {
   SelectValue,
   TextField,
   Text,
+  FieldError,
 } from "react-aria-components";
 import { boardSchema } from "./form-schema";
+import { requireAuthCookie } from "~/auth/auth";
+import { getHomeData } from "./queries";
 
 export const meta = () => {
   return [{ title: "Home" }];
 };
+
+export async function loader({ request }: LoaderFunctionArgs) {
+  let userId = await requireAuthCookie(request);
+  let boards = await getHomeData(userId);
+  return { boards };
+}
 
 export async function action({ request }: ActionFunctionArgs) {
   const formPayload = Object.fromEntries(await request.formData());

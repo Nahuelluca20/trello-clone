@@ -8,10 +8,9 @@ datasource db {
 }
 
 model Account {
-  id     String  @id @default(uuid())
-  email  String  @unique
-  boards Board[]
-
+  id       String    @id @default(uuid())
+  email    String    @unique
+  boards   Board[]
   Password Password?
 }
 
