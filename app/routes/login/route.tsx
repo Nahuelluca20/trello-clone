@@ -10,6 +10,10 @@ import { login } from "./queries";
 
 export const loader = redirectIfLoggedInLoader;
 
+export const meta = () => {
+  return [{ title: "Trellix Login" }];
+};
+
 export async function action({ request }: ActionFunctionArgs) {
   const formPayload = Object.fromEntries(await request.formData());
 
@@ -19,12 +23,7 @@ export async function action({ request }: ActionFunctionArgs) {
     return json({ error: parsed.error.format() });
   }
 
-  console.log(parsed.data.email, parsed.data.password);
-
-  let email = String(parsed.data.email) || "";
-  let password = parsed.data.password || "";
-
-  let userId = await login(email, password);
+  let userId = await login(parsed.data.email, parsed.data.password);
   if (userId === false) {
     return json(
       { ok: false, errors: { password: "Invalid credentials" } },
