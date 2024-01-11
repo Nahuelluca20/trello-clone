@@ -27,7 +27,7 @@ export async function action({ request }: ActionFunctionArgs) {
   let email = String(formData.get("email") || "");
   let password = String(formData.get("password") || "");
 
-  let errors = await validate(request);
+  let errors = await validate(email, password);
   if (errors) {
     return json({ ok: false, errors }, 400);
   }
@@ -38,7 +38,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Signup() {
   const data = useActionData<typeof action>();
-
+  console.log(data);
   return (
     <div className="flex min-h-full flex-1 flex-col mt-20 sm:px-6 lg:px-8">
       <div className="space-y-6 mx-auto border-2 rounded-lg p-10 md:min-w-[600px]">
@@ -48,23 +48,18 @@ export default function Signup() {
             <Label>Email</Label>
             <Input placeholder="Email" name="email" />
             <Text className="text-red-400 ml-2" slot="description">
-              {data && data.error?.email && data.error.email?._errors[0]}
+              {data && data.errors?.email && data.errors.email}
             </Text>
           </TextField>
           <TextField type="password" className="space-y-2 grid">
             <Label>Password</Label>
             <Input placeholder="Password" name="password" />
-            {data && data.error?.password && (
+            {data && data.errors?.password && (
               <Text className="text-red-400 ml-2" slot="description">
-                {data.error?.password?._errors[0]}
+                {data.errors?.password}
               </Text>
             )}
           </TextField>
-          {data && data.errors?.password && (
-            <Text className="text-red-400 ml-2" slot="description">
-              {data.errors?.password}
-            </Text>
-          )}
           <Button type="submit">Submit</Button>
         </Form>
       </div>
