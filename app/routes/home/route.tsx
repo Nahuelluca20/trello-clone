@@ -11,7 +11,6 @@ import {
   SelectValue,
   TextField,
   Text,
-  FieldError,
 } from "react-aria-components";
 import { boardSchema } from "./form-schema";
 import { requireAuthCookie } from "~/auth/auth.server";
@@ -23,8 +22,8 @@ export const meta = () => {
 
 export async function loader({ request }: LoaderFunctionArgs) {
   let userId = await requireAuthCookie(request);
-  let boards = await getHomeData(userId);
-  return { boards };
+
+  return userId;
 }
 
 export async function action({ request }: ActionFunctionArgs) {

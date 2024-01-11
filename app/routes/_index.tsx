@@ -41,12 +41,6 @@ export default function Index() {
           </Button>
         </Link>
       </div>
-      <Link
-        to="/home"
-        className="text-xl mt-20 font-medium text-brand-aqua underline"
-      >
-        home
-      </Link>
     </div>
   );
 }

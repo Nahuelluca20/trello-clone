@@ -38,7 +38,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Signup() {
   const data = useActionData<typeof action>();
-  console.log(data);
+
   return (
     <div className="flex min-h-full flex-1 flex-col mt-20 sm:px-6 lg:px-8">
       <div className="space-y-6 mx-auto border-2 rounded-lg p-10 md:min-w-[600px]">
