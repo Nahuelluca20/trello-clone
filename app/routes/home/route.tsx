@@ -1,4 +1,9 @@
-import { ActionFunctionArgs, LoaderFunctionArgs, json } from "@remix-run/node";
+import {
+  ActionFunctionArgs,
+  LoaderFunctionArgs,
+  json,
+  redirect,
+} from "@remix-run/node";
 import { Form, useActionData } from "@remix-run/react";
 import {
   Button,
@@ -14,7 +19,8 @@ import {
 } from "react-aria-components";
 import { boardSchema } from "./form-schema";
 import { requireAuthCookie } from "~/auth/auth.server";
-import { getHomeData } from "./queries";
+import { getHomeData, createBoard } from "./queries";
+import { badRequest } from "~/http/bad-request";
 
 export const meta = () => {
   return [{ title: "Home" }];
@@ -34,7 +40,17 @@ export async function action({ request }: ActionFunctionArgs) {
     return json({ error: parsed.error.format() });
   }
 
-  return null;
+  const userId = await requireAuthCookie(request);
+
+  if (!parsed.data.name) throw badRequest("Bad request");
+
+  const newBoard = await createBoard(
+    userId,
+    parsed.data.name,
+    parsed.data.label
+  );
+
+  return redirect(`/board/${newBoard.id}`);
 }
 
 export default function Home() {
@@ -46,9 +62,9 @@ export default function Home() {
         <TextField className="grid max-w-80 space-y-1">
           <Label>Name</Label>
           <Input placeholder="Board name" name="name" />
-          {data && data.error.name && (
+          {data && data?.error.name && (
             <Text className="text-red-400 ml-2" slot="description">
-              {data.error.name._errors[0]}
+              {data?.error.name._errors[0]}
             </Text>
           )}
         </TextField>

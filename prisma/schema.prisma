@@ -25,7 +25,7 @@ model Password {
 model Board {
   id        Int      @id @default(autoincrement())
   name      String
-  color     String   @default("#e0e0e0")
+  label     String
   createdAt DateTime @default(now())
   columns   Column[]
   items     Item[]

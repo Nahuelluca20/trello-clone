@@ -18,7 +18,7 @@ import { useActionData } from "@remix-run/react";
 export const loader = redirectIfLoggedInLoader;
 
 export const meta = () => {
-  return [{ title: "Trellix Signup" }];
+  return [{ title: "Trellify Signup" }];
 };
 
 export async function action({ request }: ActionFunctionArgs) {
