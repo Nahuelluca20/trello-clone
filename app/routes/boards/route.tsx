@@ -3,11 +3,12 @@ import {
   redirectIfLoggedInLoader,
   requireAuthCookie,
 } from "~/auth/auth.server";
-import { getHomeData } from "../home/queries";
+import { getBoards } from "./queries";
 
 export async function loader({ request }: LoaderFunctionArgs) {
   let userId = await requireAuthCookie(request);
-  let boards = await getHomeData(userId);
+  let boards = await getBoards(userId);
+  console.log(boards);
   return { boards };
 }
 
