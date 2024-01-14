@@ -4,7 +4,7 @@ import {
   json,
   redirect,
 } from "@remix-run/node";
-import { Form, useActionData } from "@remix-run/react";
+import { Form, useActionData, useNavigation } from "@remix-run/react";
 import {
   Button,
   Input,
@@ -19,7 +19,7 @@ import {
 } from "react-aria-components";
 import { boardSchema } from "./form-schema";
 import { requireAuthCookie } from "~/auth/auth.server";
-import { getHomeData, createBoard } from "./queries";
+import { createBoard } from "./queries";
 import { badRequest } from "~/http/bad-request";
 
 export const meta = () => {
@@ -55,6 +55,8 @@ export async function action({ request }: ActionFunctionArgs) {
 
 export default function Home() {
   const data = useActionData<typeof action>();
+  let navigation = useNavigation();
+  let isCreating = navigation.state === "submitting";
 
   return (
     <main>
@@ -97,7 +99,7 @@ export default function Home() {
             marginTop: "20px",
           }}
         >
-          Create
+          {isCreating ? "Creating..." : "Create"}
         </Button>
       </Form>
     </main>
