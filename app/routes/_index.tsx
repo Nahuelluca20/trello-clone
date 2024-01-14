@@ -12,10 +12,12 @@ export default function Index() {
       <img src="/remix-logo@dark.png" width="402" height="149" />
       <div className="space-y-4 max-w-md text-lg text-slate-300">
         <p>
-          It is a recreation of the popular drag-and-drop interface of{" "}
+          Trellify is my educational portfolio project, a simplified version of{" "}
           <a href="https://trello.com" className="underline">
             Trello
           </a>{" "}
+          developed with Remix. It offers an intuitive interface to organize
+          tasks, collaborate in real time, and customize projects efficiently.
           and other similar applications used for task management.
         </p>
         <p>If you want to try it, click sign up!</p>

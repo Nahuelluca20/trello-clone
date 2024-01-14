@@ -7,7 +7,7 @@ export default function Header({ isLogged }: { isLogged: null | string }) {
     <nav className="w-full border-white  border-b-2 flex py-4 ">
       <div className="max-w-[1400px] mx-auto w-full px-5 flex items-center justify-between">
         <Link to={"/"} className="grid gap-0">
-          <h2 className="text-xl m-0 font-bold">Trellix</h2>
+          <h2 className="text-xl m-0 font-bold">Trellify</h2>
           <span className="hidden sm:block text-sm m-0 text-waikawa-gray-400">
             Trello clone with remix
           </span>
