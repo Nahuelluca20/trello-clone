@@ -17,7 +17,9 @@ export default function Board({
       to={`/board/${id}`}
       className="w-60 h-40 p-4 flex flex-col justify-between border-b-8 shadow rounded hover:shadow-lg bg-waikawa-gray-950 border border-waikawa-gray-600 relative"
     >
-      <div className="font-bold">{name}</div>
+      <div className="font-bold break-all w-full overflow-ellipsis max-w-[180px]">
+        <h1>{name}</h1>
+      </div>
       <fetcher.Form method="post" action="/boards">
         <input type="hidden" name="boardId" value={id} />
         <button
