@@ -7,3 +7,9 @@ export async function getBoards(userId: string) {
     },
   });
 }
+
+export async function deleteBoard(boardId: number, accountId: string) {
+  return prisma.board.delete({
+    where: { id: boardId, accountId },
+  });
+}
