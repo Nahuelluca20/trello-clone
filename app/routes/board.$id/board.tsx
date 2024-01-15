@@ -60,7 +60,7 @@ export default function Board() {
           value={board.name}
           fieldName="name"
           inputClassName="mx-8 my-4 text-2xl font-medium border border-slate-400 rounded-lg py-1 px-2 text-black"
-          buttonClassName="mx-8 my-4 text-2xl font-medium block rounded-lg text-left border border-transparent py-1 px-2 text-slate-800"
+          buttonClassName="mx-8 my-4 text-2xl text-waikawa-gray-500 font-medium block rounded-lg text-left border border-transparent py-1 px-2 text-slate-800"
           buttonLabel={`Edit board "${board.name}" name`}
           inputLabel="Edit board name"
         >

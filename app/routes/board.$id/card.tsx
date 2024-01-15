@@ -85,7 +85,7 @@ export function Card({
     >
       <div
         draggable
-        className="bg-waikawa-gray-500 shadow shadow-slate-300 border-waikawa-gray-300 text-sm rounded-lg w-full py-1 px-2 relative"
+        className="bg-waikawa-gray-500 text-waikawa-gray-950 font-semibold shadow shadow-slate-300 border-waikawa-gray-300 text-sm rounded-lg w-full py-1 px-2 relative"
         onDragStart={(event) => {
           event.dataTransfer.effectAllowed = "move";
           event.dataTransfer.setData(

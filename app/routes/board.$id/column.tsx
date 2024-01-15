@@ -85,7 +85,7 @@ export function Column({ name, columnId, items }: ColumnProps) {
           value={name}
           inputLabel="Edit column name"
           buttonLabel={`Edit column "${name}" name`}
-          inputClassName="border text-black border-slate-400 w-full rounded-lg py-1 px-2 font-medium text-black"
+          inputClassName="border border-slate-400 w-full rounded-lg py-1 px-2 font-medium text-black"
           buttonClassName="block rounded-lg text-left w-full border border-transparent py-1 px-2 font-medium text-waikawa-gray-300"
         >
           <input type="hidden" name="intent" value={INTENTS.updateColumn} />
@@ -128,7 +128,7 @@ export function Column({ name, columnId, items }: ColumnProps) {
               });
               scrollList();
             }}
-            className="flex items-center gap-2 rounded-lg text-left w-full p-2 font-medium text-slate-500 hover:bg-slate-200 focus:bg-slate-200"
+            className="flex items-center gap-2 rounded-lg text-left w-full p-2 font-medium text-waikawa-gray-200 hover:bg-waikawa-gray-800 focus:bg-waikawa-gray-800"
           >
             <Plus /> Add a card
           </button>

@@ -47,7 +47,7 @@ export function EditableText({
         aria-label={inputLabel}
         name={fieldName}
         defaultValue={value}
-        className={inputClassName + "text-black"}
+        className={inputClassName}
         onKeyDown={(event) => {
           if (event.key === "Escape") {
             flushSync(() => {

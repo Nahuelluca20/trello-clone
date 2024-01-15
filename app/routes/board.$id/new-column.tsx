@@ -25,7 +25,7 @@ export function NewColumn({
     <Form
       method="post"
       navigate={false}
-      className="p-2 flex-shrink-0 flex flex-col gap-5 overflow-hidden max-h-full w-80 border rounded-xl shadow bg-slate-100"
+      className="p-2 flex-shrink-0 flex flex-col gap-5 overflow-hidden max-h-full w-80 border border-waikawa-gray-600 rounded-xl shadow bg-waikawa-gray-900"
       onSubmit={(event) => {
         event.preventDefault();
         let formData = new FormData(event.currentTarget);
@@ -53,7 +53,7 @@ export function NewColumn({
         ref={inputRef}
         type="text"
         name="name"
-        className="border border-slate-400 w-full rounded-lg py-1 px-2 font-medium text-black"
+        className="border border-waikawa-gray-600 w-full rounded-lg py-1 px-2 font-medium text-black"
       />
       <div className="flex justify-between">
         <SaveButton>Save Column</SaveButton>
