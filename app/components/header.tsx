@@ -4,7 +4,7 @@ import { Link } from "@remix-run/react";
 
 export default function Header({ isLogged }: { isLogged: null | string }) {
   return (
-    <nav className="w-full border-white  border-b-2 flex py-4 ">
+    <nav className="w-full border-white  border-b-3 flex py-4 ">
       <div className="max-w-[1400px] mx-auto w-full px-5 flex items-center justify-between">
         <Link to={isLogged ? "/home" : "/"} className="grid gap-0">
           <h2 className="text-xl m-0 font-bold">Trellify</h2>
