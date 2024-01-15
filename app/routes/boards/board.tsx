@@ -24,7 +24,7 @@ export default function Board({
         <input type="hidden" name="boardId" value={id} />
         <button
           aria-label="Delete board"
-          className="absolute top-4 right-4 hover:text-brand-red"
+          className="absolute top-4 right-4 hover:text-red-500"
           type="submit"
           onClick={(event) => {
             event.stopPropagation();

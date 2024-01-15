@@ -36,7 +36,7 @@ export function Column({ name, columnId, items }: ColumnProps) {
   return (
     <div
       className={
-        "flex-shrink-0 flex flex-col overflow-hidden max-h-full w-80 border-slate-400 rounded-xl shadow-sm shadow-slate-400 bg-slate-100 " +
+        "flex-shrink-0 flex flex-col overflow-hidden max-h-full w-80 border-waikawa-gray-600 rounded-xl shadow-sm shadow-slate-400 bg-waikawa-gray-950 " +
         (acceptDrop ? `outline outline-2 outline-brand-red` : ``)
       }
       onDragOver={(event) => {
@@ -85,8 +85,8 @@ export function Column({ name, columnId, items }: ColumnProps) {
           value={name}
           inputLabel="Edit column name"
           buttonLabel={`Edit column "${name}" name`}
-          inputClassName="border border-slate-400 w-full rounded-lg py-1 px-2 font-medium text-black"
-          buttonClassName="block rounded-lg text-left w-full border border-transparent py-1 px-2 font-medium text-slate-600"
+          inputClassName="border text-black border-slate-400 w-full rounded-lg py-1 px-2 font-medium text-black"
+          buttonClassName="block rounded-lg text-left w-full border border-transparent py-1 px-2 font-medium text-waikawa-gray-300"
         >
           <input type="hidden" name="intent" value={INTENTS.updateColumn} />
           <input type="hidden" name="columnId" value={columnId} />

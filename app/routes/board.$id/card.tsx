@@ -77,15 +77,15 @@ export function Card({
       className={
         "border-t-2 border-b-2 -mb-[2px] last:mb-0 cursor-grab active:cursor-grabbing px-2 py-1 " +
         (acceptDrop === "top"
-          ? "border-t-brand-red border-b-transparent"
+          ? "border-t-red-400 border-b-transparent"
           : acceptDrop === "bottom"
-          ? "border-b-brand-red border-t-transparent"
+          ? "border-b-red-400 border-t-transparent"
           : "border-t-transparent border-b-transparent")
       }
     >
       <div
         draggable
-        className="bg-white shadow shadow-slate-300 border-slate-300 text-sm rounded-lg w-full py-1 px-2 relative"
+        className="bg-waikawa-gray-500 shadow shadow-slate-300 border-waikawa-gray-300 text-sm rounded-lg w-full py-1 px-2 relative"
         onDragStart={(event) => {
           event.dataTransfer.effectAllowed = "move";
           event.dataTransfer.setData(
@@ -101,7 +101,7 @@ export function Card({
           <input type="hidden" name="itemId" value={id} />
           <button
             aria-label="Delete card"
-            className="absolute top-4 right-4 hover:text-brand-red"
+            className="absolute top-4 right-4 hover:text-red-500"
             type="submit"
             onClick={(event) => {
               event.stopPropagation();
