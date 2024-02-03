@@ -7,7 +7,7 @@
     "build": "prisma generate && remix build",
     "postinstall": "prisma generate",
     "dev": "remix dev",
-    "start": "netlify serve",
+    "start": "remix-serve build",
     "typecheck": "tsc -b"
   },
   "dependencies": {
